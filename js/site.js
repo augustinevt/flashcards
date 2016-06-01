@@ -18,9 +18,11 @@ function getDefinition(key) {
 
 $(function() {
   $('li').click(function() {
+    if ( $("#flashBack").hasClass('active') ) {
+      $('#flashFront, #flashBack').toggleClass('active');
+    }
     var keyRaw = $(this).text();
-    key = keyRaw.slice(0,-3);
-    key = key.toLowerCase();
+    key = keyRaw.slice(0,-3).toLowerCase();
     console.log(key);
     getDefinition(key);
     $('#flashBack').html('<p>' + backDefinition + '</p>');
