@@ -8,41 +8,29 @@
 //   then interpolate into jquery .HTML method
 
 var flashcardData = {toggleclass: "i wanna learn about toggleclass", fadein: "i wanna learn about fadein", slideup: "i wanna learn about slideup"};
-
 var backDefinition;
+var key;
 
 function getDefinition(key) {
   backDefinition = flashcardData[key];
   return backDefinition;
 }
-//
-// getDefinition("toggleclass");
-// console.log(backDefinition);
-// ///////working code above this line
-
-var key;
-
-// function getKeyname() {
-//   var key = $(this).text();
-//   key = key.slice(0,-2);
-//   key = key.toLowerCase();
-//   return key;
-// };
 
 $(function() {
   $('li').click(function() {
-    var key = $(this).text();
-    key = key.slice(0,-3);
+    var keyRaw = $(this).text();
+    key = keyRaw.slice(0,-3);
     key = key.toLowerCase();
     console.log(key);
     getDefinition(key);
-
     $('#flashBack').html('<p>' + backDefinition + '</p>');
-
-    $('#flashFront').html('<h2>' + key + '</h2>');
-
-
+    $('#flashFront').html('<h2>' + keyRaw + '</h2>');
   })
+
+  $('.flashcard').click(function() {
+    $('#flashFront, #flashBack').toggleClass('active');
+  });
+
 });
 
 

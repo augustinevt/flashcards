@@ -1,0 +1,12 @@
+.flashcard {
+  width: 50%;
+  height: 200px;
+  background-color: #eeeecc;
+  border: 1px dotted #666;
+  box-shadow: 2px 2px 15px #666;
+  display: none;
+}
+
+.active {
+  display: block;
+}
